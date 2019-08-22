@@ -1,0 +1,81 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RegisterTestCaseForExecution" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="The path to the test case that is to be executed" Name="TestRunnerFilePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The existing path to the test case specified in the test runner file that needs to be replaced." Name="ExistingTestCaseFilePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The newpath to the test case to be specified in the test runner file." Name="NewTestCaseFilePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:Annotation.AnnotationText>UPTF000001B4eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiUmVwbGFjZXMgdGhlIGFjdGl2aXRpZXMgcGF0aCB0byB0aGUgbmV3bHkgc3BlY2lmaWVkIFhBTUwgZmlsZSB0byBleGVjdXRlLiBcdTAwMGFcdTAwMGFUaGlzIGlzIHVzZWQgdG8gd29yayBhcm91bmQgYSBrbm93biBpc3N1ZSB0aGF0IHByZXZlbnRzIGR5bmFtaWMgcGF0aHMgaW4gSW52b2tlV29ya2Zsb3cgYWN0aXZpdGllcyB3aGVuIHRoZXkgYXJlIHVzZWQgaW4gTGlicmFyeSBwcm9qZWN0cy4gIiwiPFZlcnNpb24+a19fQmFja2luZ0ZpZWxkIjoxfQ==</sap2010:Annotation.AnnotationText>
+  <sap:VirtualizedContainerService.HintSize>376,512</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RegisterTestCaseForExecution_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Replaces the activities path to the newly specified XAML file to execute. &#xA;&#xA;This is used to work around a known issue that prevents dynamic paths in InvokeWorkflow activities when they are used in Library projects. " DisplayName="DynamicallyChangeInvokeWorkflowPathinTestCaseRunner" sap:VirtualizedContainerService.HintSize="336,432" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Edits the specified XAML file&#xA;" Code="' Build the full path to the XAML file to be edited&#xA;TestRunnerXAML = Path.Combine(Environment.CurrentDirectory,TestRunnerXAML)&#xA;&#xA;'Edit the TestRunner XAML file&#xA;Dim doc As System.Xml.XmlDocument = New System.Xml.XmlDocument()&#xA;Try&#xA; 'Load the XAML file into an XML DOM&#xA; doc.Load(TestRunnerXAML)&#xA; 'Load the namespaces required to XPath query the XML document   &#xA; Dim nsm As System.Xml.XmlNamespaceManager = New System.Xml.XmlNamespaceManager(doc.NameTable)&#xA; nsm.AddNamespace(&quot;ui&quot;,&quot;http://schemas.uipath.com/workflow/activities&quot;)&#xA; &#xA; 'Find the fist xml node that is an InvokeWorkflowFile that is pathed to execute the worflow specified &#xA; 'by the ExistingTestCase argument&#xA; Dim node As System.Xml.XmlNode&#xA; node = doc.SelectSingleNode(String.Format(&quot;//ui:InvokeWorkflowFile[@WorkflowFileName='{0}']&quot;,ExistingTestCase),nsm)&#xA;&#xA; If IsNothing(node) Then&#xA;  'The existing test case could not be found as expected so throw an exception.&#xA;   Dim msg As String = String.Format(&quot;The test runner file '{0}' does not contain an InvokeWorkflowFile activity pathed to execute file '{1}'.&quot;,TestRunnerXAML,ExistingTestCase)&#xA;   Throw New System.Exception(msg)&#xA; Else&#xA;  'We have found the XML element, update its path to execute the workflow specified by the NewTestCase argument&#xA;  node.Attributes(&quot;WorkflowFileName&quot;).Value = NewTestCase&#xA;    doc.Save(TestRunnerXAML)&#xA;    'Console.WriteLine(String.Format(&quot;The test runner file '{0}' InvokeWorkflowFile activity pathed to execute file '{1}' has been changed to execute file '{2}'.&quot;,TestRunnerXAML,ExistingTestCase, NewTestCase))&#xA; End If&#xA;Catch Ex As Exception&#xA; 'Log the Exception &#xA; Console.WriteLine(Ex.ToString())&#xA; 'Re-throw the exception to stop the workflow&#xA; Throw Ex&#xA;End Try" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="314,206" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="TestRunnerXAML">[TestRunnerFilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ExistingTestCase">[ExistingTestCaseFilePath]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="NewTestCase">[NewTestCaseFilePath]</InArgument>
+      </ui:InvokeCode.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+  </Sequence>
+</Activity>

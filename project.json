@@ -22,7 +22,10 @@
   "projectType": "Library",
   "libraryOptions": {
     "includeOriginalXaml": false,
-    "privateWorkflows": []
+    "privateWorkflows": [
+      "SaveResultsAsCSV.xaml",
+      "SaveResultsAsExcel.xaml"
+    ]
   },
   "webServices": []
 }

@@ -1,0 +1,210 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DiscoverTestCases" this:DiscoverTestCases.TestCaseDirectory="[System.IO.Directory.GetCurrentDirectory()]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="The path to the directory that contains test cases." Name="TestCaseDirectory" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="A list of all discovered test cases." Name="TestCases" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:Annotation.AnnotationText>UPTF00000104eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiRHluYW1pY2FsbHkgZGV0ZWN0IGFuZCByZWdpc3RlciB1c2UgY2FzZXMgY29udGFpbmVkIGluIHRoZSBkaXJlY3RvcnkgdHJlZSBvZiBhIFVpUGF0aCBwcm9qZWN0LiAiLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
+  <sap:VirtualizedContainerService.HintSize>797,2515</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap2010:Annotation.AnnotationText="Dynamically detect and register use cases contained in the directory tree of a UiPath project." DisplayName="DiscoverTestCases" sap:VirtualizedContainerService.HintSize="757,2395" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="A DataTable containing all of the discovered test cases." Name="testCaseTable" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage sap2010:Annotation.AnnotationText="Log the directory path where searching for test cases begines" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="735,133" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[String.Format(&quot;Searching for test cases in the '{0}' project directory tree.&quot;,TestCaseDirectory)]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Create an empty DataTable to contain the list of discovered test cases and record details of their execution." DataTable="[testCaseTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="735,116" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;TestCase&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestEnvironmentBlackList&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestCategory&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestOrder&quot; type=&quot;xs:int&quot; default=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestExecutionEnvironment&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestResult&quot; type=&quot;xs:boolean&quot; default=&quot;false&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestMessage&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestStarted&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TestCompleted&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xA;        &lt;xs:field xpath=&quot;TestCase&quot; /&gt;&#xA;      &lt;/xs:unique&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:BuildDataTable>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For each discovered XAML file, discover if it is a test case. Register each test case in the Tests DataTable." DisplayName="For Each - XAML file in the current directory tree" sap:VirtualizedContainerService.HintSize="735,1642" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[System.IO.Directory.GetFiles(TestCaseDirectory,&quot;*.xaml&quot;,System.IO.SearchOption.AllDirectories)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="719,1481" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="The XML cotnent of the XAML file." Name="xml" />
+              <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Flag indicating if the XAML file is a test case." Name="isTestCase" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ReadTextFile sap2010:Annotation.AnnotationText="Read the contents of the XAML file" Content="[xml]" DisplayName="Read Text File" FileName="[file]" sap:VirtualizedContainerService.HintSize="697,86" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ReadTextFile>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="697,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[String.Format(&quot;Checking to see if file '{0}' is a test case&quot;, file)]" />
+            <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="XPath query the XAML file and determine if it contains the Input and Output arguments that defines it as a test case." Code="'Load the XAML Document into an XML DOM&#xA;Dim doc As System.Xml.XmlDocument = New System.Xml.XmlDocument()&#xA;doc.Load(XAMLFile)&#xA;&#xA;'Load the Namespaces required to XPath Query the DOM for elements we are looking for&#xA;Dim nsm As System.Xml.XmlNamespaceManager = New System.Xml.XmlNamespaceManager(doc.NameTable)&#xA;nsm.AddNamespace(&quot;x&quot;,&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;)&#xA;nsm.AddNamespace(&quot;this&quot;,&quot;clr-namespace:&quot;)&#xA;&#xA;' Find the elements using XPaths that define a test case&#xA;Dim nodeTestCategory As System.Xml.XmlNode&#xA;nodeTestCategory = doc.SelectSingleNode(&quot;//x:Members/x:Property[@Name='TestCategory'][@Type='InArgument(x:String)']&quot;,nsm)&#xA;&#xA;Dim nodeTestResult As System.Xml.XmlNode&#xA;nodeTestResult = doc.SelectSingleNode(&quot;//x:Members/x:Property[@Name='TestResult'][@Type='OutArgument(x:Boolean)']&quot;,nsm)&#xA;&#xA;Dim nodeTestMessage As System.Xml.XmlNode&#xA;nodeTestMessage = doc.SelectSingleNode(&quot;//x:Members/x:Property[@Name='TestMessage'][@Type='OutArgument(x:String)']&quot;,nsm)&#xA;&#xA;' Return True if all three elements are found, False if not&#xA;IsTestCase = ((Not IsNothing(nodeTestCategory)) And Not(IsNothing(nodeTestResult)) And Not(IsNothing(nodeTestMessage)))" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="697,221" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="XAMLFile">[file]</InArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="IsTestCase">[isTestCase]</OutArgument>
+              </ui:InvokeCode.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeCode>
+            <If sap2010:Annotation.AnnotationText="If the XAML file is a test case, then we need to add it to the testCase Data Table otherwise leave it alone" Condition="[isTestCase = True  AND file.ToUpper.EndsWith(&quot;TESTCASETEMPLATE.XAML&quot;) = False]" DisplayName="If" sap:VirtualizedContainerService.HintSize="697,839" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap2010:Annotation.AnnotationText="Yes, this file is a test case, and is not the template test case." sap:VirtualizedContainerService.HintSize="336,664" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="The test category argument extracted from the XAML file" Name="testCategory" />
+                    <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="The test order argument extracted from the XAML file" Name="testOrder" />
+                    <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="The test environment blacklist argument extracted from the XAML file." Name="testEnvironmentBlackList" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Extract from the XAML file the default values of the TestEnvironmentBlackList, TestCategory and TestOrder arguments." Code="'Load the XAML Document into an XML DOM&#xA;Dim doc As System.Xml.XmlDocument = New System.Xml.XmlDocument()&#xA;doc.Load(XAMLFile)&#xA;&#xA;'Load the Namespaces required to XPath Query the DOM for elements we are looking for&#xA;Dim nsm As System.Xml.XmlNamespaceManager = New System.Xml.XmlNamespaceManager(doc.NameTable)&#xA;nsm.AddNamespace(&quot;x&quot;,&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;)&#xA;nsm.AddNamespace(&quot;this&quot;,&quot;clr-namespace:&quot;)&#xA;&#xA;'Get the class name of the XAML document&#xA;Dim className As String = doc.DocumentElement.Attributes(&quot;x:Class&quot;).Value&#xA;&#xA;'Get the environment black list argument default value of the test case if it exists&#xA;TestEnvironmentBlackList = If(IsNothing(doc.DocumentElement.Attributes(String.Format(&quot;this:{0}.TestEnvironmentBlackList&quot;,className))),Nothing,doc.DocumentElement.Attributes(String.Format(&quot;this:{0}.TestEnvironmentBlackList&quot;,className)).Value)&#xA;&#xA;'Get the test category argument default value of the test case if it exists&#xA;TestCategory = If(IsNothing(doc.DocumentElement.Attributes(String.Format(&quot;this:{0}.TestCategory&quot;,className))),Nothing,doc.DocumentElement.Attributes(String.Format(&quot;this:{0}.TestCategory&quot;,className)).Value)&#xA;&#xA;'Get the test order argument default value of the test case if it exists&#xA;TestOrder = If(IsNothing(doc.DocumentElement.Attributes(String.Format(&quot;this:{0}.TestOrder&quot;,className))),0,Convert.toInt32(doc.DocumentElement.Attributes(String.Format(&quot;this:{0}.TestOrder&quot;,className)).Value))" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="314,221" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+                    <ui:InvokeCode.Arguments>
+                      <OutArgument x:TypeArguments="x:String" x:Key="TestCategory">[testCategory]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="TestEnvironmentBlackList">[testEnvironmentBlackList]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="TestOrder">[testOrder]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="XAMLFile">[file]</InArgument>
+                    </ui:InvokeCode.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeCode>
+                  <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Register the discovered test case information into the TestCases DataTable." ArrayRow="[{file,testEnvironmentBlackList,testCategory,testOrder,Nothing,false,Nothing,Nothing,Nothing}]" DataTable="[testCaseTable]" DisplayName="Add Data Row - Register XAML Test case file details" sap:VirtualizedContainerService.HintSize="314,79" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:AddDataRow>
+                  <ui:LogMessage sap2010:Annotation.AnnotationText="Log the discovered test case." DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,118" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[String.Format(&quot;Identified file {0} as a test case&quot;,file)]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:Annotation.AnnotationText="No, this file is not a test case" sap:VirtualizedContainerService.HintSize="336,242" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[String.Format(&quot;The '{0}' file is not a test case&quot;, file)]" />
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <Assign sap2010:Annotation.AnnotationText="Return the table of discovered test cases" sap:VirtualizedContainerService.HintSize="735,102" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[TestCases]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[testCaseTable]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="735,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[String.Format(&quot;{0} test cases were discovered in the '{1}' project directory tree&quot;,TestCases.Rows.Count, TestCaseDirectory)]" />
+  </Sequence>
+</Activity>
