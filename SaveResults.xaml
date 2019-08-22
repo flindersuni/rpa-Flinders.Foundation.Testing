@@ -7,8 +7,8 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap2010:Annotation.AnnotationText>UPTF000000F0eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiU2F2ZSBhIHJlcG9ydCBvZiB0aGUgbGlzdCB0ZXN0cyBhbmQgdGhlaXIgcmVzdWx0cyBhcyBlaXRoZXIgYSBDU1Ygb3IgRXhjZWwgZmlsZS4iLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
-  <sap:VirtualizedContainerService.HintSize>654,842</sap:VirtualizedContainerService.HintSize>
+  <sap2010:Annotation.AnnotationText>UPTF00000160eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL2dpdGh1Yi5jb21cL2ZsaW5kZXJzdW5pXC9ycGEtRmxpbmRlcnMuRm91bmRhdGlvbi5UZXN0aW5nXC93aWtpXC9TYXZlUmVzdWx0cyIsIjxJbml0aWFsVG9vbHRpcD5rX19CYWNraW5nRmllbGQiOiJTYXZlIGEgcmVwb3J0IG9mIHRoZSBsaXN0IHRlc3RzIGFuZCB0aGVpciByZXN1bHRzIGFzIGVpdGhlciBhIENTViBvciBFeGNlbCBmaWxlLiIsIjxWZXJzaW9uPmtfX0JhY2tpbmdGaWVsZCI6MX0=</sap2010:Annotation.AnnotationText>
+  <sap:VirtualizedContainerService.HintSize>654,802</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
