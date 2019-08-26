@@ -11,7 +11,7 @@ Documentation on each activity is available in the [wiki][wiki].
 
 ## Acknowledgements ##
 
-The RPA team acknowledges the assistance of [RPA Solutions][rpa-solitions] in
+The RPA team acknowledges the assistance of [RPA Solutions][rpa-solutions] in
 the development of an earlier pre-release version of this library.
 
 
