@@ -7,7 +7,7 @@
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap2010:Annotation.AnnotationText>UPTF00000174eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL2dpdGh1Yi5jb21cL2ZsaW5kZXJzdW5pXC9ycGEtRmxpbmRlcnMuRm91bmRhdGlvbi5UZXN0aW5nXC93aWtpXC9Mb2FkVGVzdENvbmZpZ3VyYXRpb24iLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiTG9hZCB0ZXN0IGNvbmZpZ3VyYXRpb24gdmFsdWVzIGZyb20gYW4gRXhjZWwgV29ya2Jvb2sgYW5kIHJldHVybiB0aGVtIGFzIGEgRGF0YVRhYmxlIiwiPFZlcnNpb24+a19fQmFja2luZ0ZpZWxkIjoxfQ==</sap2010:Annotation.AnnotationText>
-  <sap:VirtualizedContainerService.HintSize>480,1301</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>496,444</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -61,51 +61,58 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Load test configuration values from an Excel Workbook and return them as a DataTable" DisplayName="LoadTestConfiguration" sap:VirtualizedContainerService.HintSize="440,1181" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Load test configuration values from an Excel Workbook and return them as a DataTable" DisplayName="LoadTestConfiguration" sap:VirtualizedContainerService.HintSize="476,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="418,1015" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch sap2010:Annotation.AnnotationText="Try to load and prepare the configuration values" DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,210" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="336,788" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap2010:Annotation.AnnotationText="Try to load and prepare the configuration values" sap:VirtualizedContainerService.HintSize="376,768" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="The range of cells in the Excel Worksheet that contains the list of configuration values." Name="configTableRange" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[String.Format(&quot;Loading configuration values from: {0}&quot;, TestConfigurationWorkbookPath)]" />
-          <ui:GetTableRange sap2010:Annotation.AnnotationText="Find the table that contains the configuration values" DisplayName="Get Table Range" sap:VirtualizedContainerService.HintSize="314,129" sap2010:WorkflowViewState.IdRef="GetTableRange_1" IsPivot="False" Range="[configTableRange]" SheetName="Configuration" TableName="TestConfig" WorkbookPath="[TestConfigurationWorkbookPath]">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[String.Format(&quot;Loading configuration values from: {0}&quot;, TestConfigurationWorkbookPath)]" />
+          <ui:GetTableRange sap2010:Annotation.AnnotationText="Find the table that contains the configuration values" DisplayName="Get Table Range" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="GetTableRange_1" IsPivot="False" Range="[configTableRange]" SheetName="Configuration" TableName="TestConfig" WorkbookPath="[TestConfigurationWorkbookPath]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetTableRange>
-          <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="Read the contents of the cells in the range found in the previous step" DataTable="[TestConfiguration]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="314,129" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="[configTableRange]" SheetName="Configuration" WorkbookPath="[TestConfigurationWorkbookPath]">
+          <ui:ReadRange AddHeaders="True" sap2010:Annotation.AnnotationText="Read the contents of the cells in the range found in the previous step" DataTable="[TestConfiguration]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="[configTableRange]" SheetName="Configuration" WorkbookPath="[TestConfigurationWorkbookPath]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ReadRange>
-          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" sap2010:Annotation.AnnotationText="Remove the description row as it is not required" ColumnName="Description" DataTable="[TestConfiguration]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="314,64" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1">
+          <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" sap2010:Annotation.AnnotationText="Remove the description row as it is not required" ColumnName="Description" DataTable="[TestConfiguration]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:RemoveDataColumn>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[String.Format(&quot;Successfully loaded {0} test config values from {1}&quot;, TestConfiguration.Rows.Count, TestConfigurationWorkbookPath)]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[String.Format(&quot;Successfully loaded {0} test config values from {1}&quot;, TestConfiguration.Rows.Count, TestConfigurationWorkbookPath)]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -116,14 +123,21 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="336,277" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence sap2010:Annotation.AnnotationText="Catch all exceptions and  throw a new ConfigurationException" sap:VirtualizedContainerService.HintSize="376,329" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[String.Format(&quot;An exception occurred while loading config values. Details: {0}&quot;, exception.Message)]" />
-              <Throw Exception="[new System.Configuration.ConfigurationException(&quot;Unable to load required test configuration&quot;, exception)]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[String.Format(&quot;An exception occurred while loading config values. Details: {0}&quot;, exception.Message)]" />
+              <Throw sap2010:Annotation.AnnotationText="Don't use the foundation library here to avoid circular dependencies" Exception="[new System.Configuration.ConfigurationException(&quot;Unable to load required test configuration&quot;, exception)]" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="Throw_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Throw>
             </Sequence>
           </ActivityAction>
         </Catch>

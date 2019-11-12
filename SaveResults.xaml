@@ -8,7 +8,7 @@
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap2010:Annotation.AnnotationText>UPTF00000160eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL2dpdGh1Yi5jb21cL2ZsaW5kZXJzdW5pXC9ycGEtRmxpbmRlcnMuRm91bmRhdGlvbi5UZXN0aW5nXC93aWtpXC9TYXZlUmVzdWx0cyIsIjxJbml0aWFsVG9vbHRpcD5rX19CYWNraW5nRmllbGQiOiJTYXZlIGEgcmVwb3J0IG9mIHRoZSBsaXN0IHRlc3RzIGFuZCB0aGVpciByZXN1bHRzIGFzIGVpdGhlciBhIENTViBvciBFeGNlbCBmaWxlLiIsIjxWZXJzaW9uPmtfX0JhY2tpbmdGaWVsZCI6MX0=</sap2010:Annotation.AnnotationText>
-  <sap:VirtualizedContainerService.HintSize>654,802</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>654,782</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,13 +59,13 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Save a report of the list tests and their results as either a CSV or Excel file." DisplayName="SaveResults" sap:VirtualizedContainerService.HintSize="614,722" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="Save a report of the list tests and their results as either a CSV or Excel file." DisplayName="SaveResults" sap:VirtualizedContainerService.HintSize="634,722" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Flag to indicate if the output directory exists or not" Name="outputDirectoryExists" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -138,20 +138,25 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,134.02</av:Point>
-          <av:Size x:Key="ShapeSize">200,78</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,212.02 300,264.5</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,93</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,227.02 300,264.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Validate Input Arguments" sap:VirtualizedContainerService.HintSize="200,78" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="Validate Input Arguments" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If Condition="[isNothing(TestResults)]" sap:VirtualizedContainerService.HintSize="464,212" sap2010:WorkflowViewState.IdRef="If_1">
+        <If sap2010:Annotation.AnnotationText="Hase the RestResults argument been set?" Condition="[isNothing(TestResults)]" sap:VirtualizedContainerService.HintSize="484,239" sap2010:WorkflowViewState.IdRef="If_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Throw sap2010:Annotation.AnnotationText="Throw a new BusinessRuleException" Exception="[new Uipath.Core.BusinessRuleException(String.Format(&quot;The '{0}' input argument is required&quot;, &quot;TestResults&quot;))]" sap:VirtualizedContainerService.HintSize="200,64" sap2010:WorkflowViewState.IdRef="Throw_1">
+            <Throw sap2010:Annotation.AnnotationText="No, Throw a new BusinessRuleException" Exception="[new Uipath.Core.BusinessRuleException(String.Format(&quot;The '{0}' input argument is required&quot;, &quot;TestResults&quot;))]" sap:VirtualizedContainerService.HintSize="200,64" sap2010:WorkflowViewState.IdRef="Throw_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -160,9 +165,14 @@
             </Throw>
           </If.Then>
         </If>
-        <If Condition="[isNothing(OutputDirectory)]" sap:VirtualizedContainerService.HintSize="464,212" sap2010:WorkflowViewState.IdRef="If_2">
+        <If sap2010:Annotation.AnnotationText="Has the OutputDirectory argument been set?" Condition="[isNothing(OutputDirectory)]" sap:VirtualizedContainerService.HintSize="484,239" sap2010:WorkflowViewState.IdRef="If_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Throw sap2010:Annotation.AnnotationText="Throw a new BusinessRuleException" Exception="[new Uipath.Core.BusinessRuleException(String.Format(&quot;The '{0}' input argument is required&quot;, &quot;OutputDirectory&quot;))]" sap:VirtualizedContainerService.HintSize="200,64" sap2010:WorkflowViewState.IdRef="Throw_2">
+            <Throw sap2010:Annotation.AnnotationText="No, Throw a new BusinessRuleException" Exception="[new Uipath.Core.BusinessRuleException(String.Format(&quot;The '{0}' input argument is required&quot;, &quot;OutputDirectory&quot;))]" sap:VirtualizedContainerService.HintSize="200,64" sap2010:WorkflowViewState.IdRef="Throw_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -197,7 +207,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">300,437.5 300,485.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If sap2010:Annotation.AnnotationText="Does the output directory already exist?" Condition="[outputDirectoryExists]" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="If_3">
+              <If sap2010:Annotation.AnnotationText="Does the output directory already exist?" Condition="[outputDirectoryExists]" sap:VirtualizedContainerService.HintSize="755,509" sap2010:WorkflowViewState.IdRef="If_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -205,17 +215,24 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[String.Format(&quot;Output path '{0}' already exists&quot;, OutputDirectory)]" />
+                  <ui:LogMessage sap2010:Annotation.AnnotationText="Yes, no need to try to create it." DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,118" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[String.Format(&quot;Output path '{0}' already exists&quot;, OutputDirectory)]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
                 </If.Then>
                 <If.Else>
-                  <Sequence sap:VirtualizedContainerService.HintSize="336,277" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence sap2010:Annotation.AnnotationText="No, try to create it" sap:VirtualizedContainerService.HintSize="376,334" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[String.Format(&quot;Attempting to create output path '{0}'&quot;, OutputDirectory)]" />
-                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OutputDirectory]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[String.Format(&quot;Attempting to create output path '{0}'&quot;, OutputDirectory)]" />
+                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Directory" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OutputDirectory]" />
                   </Sequence>
                 </If.Else>
               </If>
