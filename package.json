@@ -1,0 +1,29 @@
+{
+  "name": "flinders.foundation.rpa-lint",
+  "version": "1.0.0",
+  "description": "Convenience package for invoking the rpa-lint app on the Flinders.Foundation.Testing library",
+  "scripts": {
+    "test": "rpa-lint -p -r -q"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flindersuni/rpa-Flinders.Foundation.Testing.git"
+  },
+  "private": true,
+  "keywords": [
+    "rpa",
+    "robotic-process-automation",
+    "uipath",
+    "university",
+    "academic"
+  ],
+  "author": "Corey Wallis <corey.wallis@flinders.edu.au> (https://staff.flinders.edu.au/business-improvement)",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/flindersuni/rpa-Flinders.Foundation.Testing/issues"
+  },
+  "homepage": "https://github.com/flindersuni/rpa-Flinders.Foundation.Testing#readme",
+  "dependencies": {
+    "rpa-lint": "flindersuni/rpa-lint"
+  }
+}
